@@ -32,10 +32,13 @@ if (fs.existsSync(targetDir)) {
  * 4. COPY TEMPLATE HERE  ⬅⬅⬅
  *    (THIS IS STEP #6 FROM EARLIER)
  */
-await cp(new URL('../templates/basic', import.meta.url), targetDir, { recursive: true });
+await cp(new URL('../templates/default', import.meta.url), targetDir, { recursive: true });
+await cp;
 
 /**
  * 5. Done
  */
 console.log(`✅ Project created in ${targetDir}`);
-console.log(`\nNext steps:\n  cd ${response.name}\n  npm install\n  npm run dev\n\n^ ^\n _ `);
+console.log(
+  `\n    Next steps:\n    cd ${response.name}\n        npm install\n        npm run dev\n\n    ^  ^\n     _ `
+);
