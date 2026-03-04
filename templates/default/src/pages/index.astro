@@ -1,0 +1,96 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const siteTitle = "Your Site";
+const description = "Developer, designer, and maker of things on the internet.";
+
+const links = [
+  {
+    href: "/about",
+    label: "about",
+    external: false,
+  },
+  {
+    href: "/blog",
+    label: "blog",
+    external: false,
+  },
+  {
+    href: "/projects",
+    label: "projects",
+    external: false,
+  },
+];
+---
+
+<BaseLayout title={siteTitle} description={description} backToLink={false}>
+  <div class="relative flex min-h-screen flex-col items-center justify-center px-0 sm:px-6">
+    <!-- Subtle ambient glow -->
+    <div
+      class="pointer-events-none absolute top-1/2 left-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.03]"
+      style="background: radial-gradient(circle, #22d3ee 0%, transparent 70%);"
+    >
+    </div>
+
+    <div class="relative z-10 w-full max-w-xs">
+      <!-- Header -->
+      <header
+        class="mb-16 opacity-0 animate-fade-in-up"
+        style="animation-delay: 0s;"
+      >
+        <div class="mx-auto mb-3 flex h-18 w-18 items-center justify-center rounded-full ring-2 ring-white/10">
+          <img src="/favicon.svg" alt="your name" class="h-16 w-16 rounded-full object-cover" />
+        </div>
+        <h1 class="text-xl tracking-tight text-text text-center">your name</h1>
+        <p class="mt-1 text-sm text-muted text-center">your description</p>
+      </header>
+
+      <!-- Links -->
+      <nav class="flex flex-col gap-0">
+        {
+          links.map((link, i) => (
+            <a
+              href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noopener noreferrer" : undefined}
+              class="group relative flex items-center justify-between py-3 opacity-0 animate-fade-in-up"
+              style={`animation-delay: ${(i + 1) * 0.05}s;`}
+            >
+              <span class="text-subtle transition-colors duration-200 group-hover:text-text">
+                {link.label}
+              </span>
+              <span class="text-muted opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0.5">
+                {link.external ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-3.5 w-3.5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-3.5 w-3.5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                )}
+              </span>
+              <!-- Hover line -->
+              <span class="absolute bottom-2 left-0 h-px w-0 bg-accent/40 transition-all duration-300 ease-out group-hover:w-full" />
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+
+const siteTitle = "projects";
+const description = "Things I've built and worked on.";
+
+const allProjects = await getCollection("projects");
+const sortedProjects = allProjects.sort((a, b) => {
+  // Featured projects first, then by order if specified
+  if (a.data.featured !== b.data.featured) {
+    return a.data.featured ? -1 : 1;
+  }
+  return (a.data.order ?? 999) - (b.data.order ?? 999);
+});
+---
+
+<BaseLayout title={siteTitle} description={description}>
+  <div class="mx-auto w-full max-w-4xl px-6 py-16">
+    <header class="mb-16 opacity-0 animate-fade-in-up" style="animation-delay: 0s;">
+      <h1 class="text-2xl tracking-tight text-text">projects</h1>
+      <p class="mt-2 text-sm text-muted">
+        things i've built and worked on.
+      </p>
+    </header>
+
+    {
+      sortedProjects.length > 0 ? (
+        <div class="flex flex-col gap-2">
+          {sortedProjects.map((project, i) => (
+            <div
+              class="opacity-0 animate-fade-in-up"
+              style={`animation-delay: ${(i + 1) * 0.05}s;`}
+            >
+              <ProjectCard
+                title={project.data.title}
+                description={project.data.description}
+                url={project.data.url}
+                github={project.data.github}
+                technologies={project.data.technologies}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p class="text-muted opacity-0 animate-fade-in-up" style="animation-delay: 0.05s;">
+          No projects yet. Check back soon.
+        </p>
+      )
+    }
+  </div>
+</BaseLayout>

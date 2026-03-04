@@ -1,0 +1,9 @@
+{
+  "title": "Portfolio Website",
+  "description": "My personal portfolio and blog built with Astro 5, Tailwind CSS v4, and TypeScript. Features a dark minimalist design with smooth view transitions.",
+  "url": "https://yoursite.com",
+  "github": "https://github.com/yourhandle/portfolio",
+  "technologies": ["Astro", "TypeScript", "Tailwind CSS", "MDX"],
+  "featured": true,
+  "order": 1
+}

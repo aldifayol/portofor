@@ -1,0 +1,8 @@
+{
+  "title": "CLI Tool",
+  "description": "A command-line utility that helps developers automate repetitive tasks. Built with Node.js and published on npm.",
+  "github": "https://github.com/yourhandle/cli-tool",
+  "technologies": ["Node.js", "TypeScript", "Commander.js"],
+  "featured": false,
+  "order": 2
+}
