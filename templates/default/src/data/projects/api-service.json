@@ -1,0 +1,8 @@
+{
+  "title": "REST API Service",
+  "description": "A scalable REST API built with Fastify and PostgreSQL. Includes authentication, rate limiting, and comprehensive documentation.",
+  "github": "https://github.com/yourhandle/api-service",
+  "technologies": ["Node.js", "Fastify", "PostgreSQL", "Docker"],
+  "featured": false,
+  "order": 3
+}

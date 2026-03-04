@@ -1,0 +1,47 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPostPreview from "../../components/BlogPostPreview.astro";
+
+const siteTitle = "blog";
+const description = "Thoughts on tech, development, and other things.";
+
+const allPosts = await getCollection("blog", ({ data }) => !data.draft);
+const sortedPosts = allPosts.sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout title={siteTitle} description={description}>
+  <div class="mx-auto w-full max-w-4xl px-6 py-16">
+    <header class="mb-16 opacity-0 animate-fade-in-up" style="animation-delay: 0s;">
+      <h1 class="text-2xl tracking-tight text-text">blog</h1>
+      <p class="mt-2 text-sm text-muted">
+        thoughts on tech, development, and building things.
+      </p>
+    </header>
+
+    {
+      sortedPosts.length > 0 ? (
+        <div class="flex flex-col gap-1">
+          {sortedPosts.map((post, i) => (
+            <div
+              class="opacity-0 animate-fade-in-up"
+              style={`animation-delay: ${(i + 1) * 0.05}s;`}
+            >
+              <BlogPostPreview
+                id={post.id}
+                title={post.data.title}
+                date={post.data.date}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <p class="text-muted opacity-0 animate-fade-in-up" style="animation-delay: 0.05s;">
+          No posts yet. Check back soon.
+        </p>
+      )
+    }
+  </div>
+</BaseLayout>

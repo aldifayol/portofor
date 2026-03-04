@@ -1,0 +1,147 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const siteTitle = "about";
+const description = "A bit about me, what I do, and how to get in touch.";
+
+const skills = [
+  "TypeScript",
+  "JavaScript",
+  "React",
+  "Next.js",
+  "Astro",
+  "Node.js",
+  "Python",
+  "PostgreSQL",
+  "Tailwind CSS",
+  "Git",
+];
+
+const experience = [
+  {
+    role: "Senior Developer",
+    company: "Company Name",
+    period: "2022 - Present",
+    description: "Building scalable web applications and leading technical initiatives.",
+  },
+  {
+    role: "Full Stack Developer",
+    company: "Previous Company",
+    period: "2020 - 2022",
+    description: "Developed features for customer-facing products using React and Node.js.",
+  },
+  {
+    role: "Junior Developer",
+    company: "First Company",
+    period: "2018 - 2020",
+    description: "Started my career building internal tools and learning best practices.",
+  },
+];
+---
+
+<BaseLayout title={siteTitle} description={description}>
+  <div class="mx-auto w-full max-w-3xl px-6 py-16">
+    <header class="mb-16 opacity-0 animate-fade-in-up" style="animation-delay: 0s;">
+      <h1 class="text-2xl tracking-tight text-text">about</h1>
+    </header>
+
+    <!-- Bio Section -->
+    <section
+      class="mb-16 opacity-0 animate-fade-in-up"
+      style="animation-delay: 0.05s;"
+    >
+      <h2 class="mb-4 text-lg text-text">who i am</h2>
+      <div class="space-y-4 text-sm leading-relaxed text-subtle">
+        <p>
+          I'm a developer based in [Your City]. I enjoy building things for the
+          web and solving interesting problems with code.
+        </p>
+        <p>
+          When I'm not coding, you can find me [your hobbies - reading, hiking,
+          gaming, etc.]. I believe in writing clean, maintainable code and
+          continuous learning.
+        </p>
+        <p>
+          Currently, I'm focused on [what you're working on or interested in -
+          building products, open source, learning new technologies, etc.].
+        </p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section
+      class="mb-16 opacity-0 animate-fade-in-up"
+      style="animation-delay: 0.1s;"
+    >
+      <h2 class="mb-4 text-lg text-text">skills</h2>
+      <div class="flex flex-wrap gap-2">
+        {
+          skills.map((skill) => (
+            <span class="rounded bg-surface px-3 py-1.5 text-sm text-subtle">
+              {skill}
+            </span>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section
+      class="mb-16 opacity-0 animate-fade-in-up"
+      style="animation-delay: 0.15s;"
+    >
+      <h2 class="mb-6 text-lg text-text">experience</h2>
+      <div class="space-y-8">
+        {
+          experience.map((job) => (
+            <div class="border-l border-white/10 pl-4">
+              <h3 class="text-text">{job.role}</h3>
+              <p class="mt-1 text-sm text-muted">
+                {job.company} &middot; {job.period}
+              </p>
+              <p class="mt-2 text-sm text-subtle">{job.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      class="opacity-0 animate-fade-in-up"
+      style="animation-delay: 0.2s;"
+    >
+      <h2 class="mb-4 text-lg text-text">get in touch</h2>
+      <p class="mb-4 text-sm text-subtle">
+        I'm always open to interesting conversations and opportunities. Feel
+        free to reach out.
+      </p>
+      <div class="flex flex-wrap gap-4 text-sm">
+        <a
+          href="mailto:your@email.com"
+          class="text-subtle transition-colors duration-200 hover:text-accent"
+        >
+          your@email.com
+        </a>
+        <span class="text-muted">/</span>
+        <a
+          href="https://twitter.com/yourhandle"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-subtle transition-colors duration-200 hover:text-accent"
+        >
+          @yourhandle
+        </a>
+        <span class="text-muted">/</span>
+        <a
+          href="https://github.com/yourhandle"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-subtle transition-colors duration-200 hover:text-accent"
+        >
+          github
+        </a>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
