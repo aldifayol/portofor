@@ -1,7 +1,7 @@
 {
   "name": "create-portofor",
   "version": "0.1.0",
-  "description": "Scaffold a Portofor.my.id project",
+  "description": "Scaffold a Portofor project",
   "type": "module",
   "bin": {
     "create-portoformyid": "./bin/index.js"

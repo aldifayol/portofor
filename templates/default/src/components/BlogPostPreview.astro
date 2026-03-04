@@ -1,0 +1,27 @@
+---
+import { format } from "date-fns";
+
+interface Props {
+  id: string;
+  title: string;
+  date: Date;
+}
+
+const { id, title, date } = Astro.props;
+const url = `/blog/${id}`;
+const formattedDate = format(date, "MMM d, yyyy");
+---
+
+<a
+  href={url}
+  class="group relative flex items-baseline justify-between gap-4 py-3"
+>
+  <span class="text-subtle transition-colors duration-200 group-hover:text-text">
+    {title}
+  </span>
+  <span class="shrink-0 text-sm text-muted">{formattedDate}</span>
+  <span
+    class="absolute bottom-2 left-0 h-px w-0 bg-accent/40 transition-all duration-300 ease-out group-hover:w-full"
+  >
+  </span>
+</a>
