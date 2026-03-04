@@ -1,32 +1,32 @@
 /* source("..") sets base path, so Tailwind CSS scans from `src` instead of `src/styles` */
-@import "tailwindcss" source("..");
+@import 'tailwindcss' source('..');
 
 /* Tailwind CSS Typography plugin */
 @plugin "@tailwindcss/typography";
 
 /* Geist Mono font */
 @font-face {
-  font-family: "Geist Mono";
-  src: url("https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-mono/GeistMono-Regular.woff2")
-    format("woff2");
+  font-family: 'Geist Mono';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-mono/GeistMono-Regular.woff2')
+    format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Geist Mono";
-  src: url("https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-mono/GeistMono-Medium.woff2")
-    format("woff2");
+  font-family: 'Geist Mono';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-mono/GeistMono-Medium.woff2')
+    format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Geist Mono";
-  src: url("https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-mono/GeistMono-SemiBold.woff2")
-    format("woff2");
+  font-family: 'Geist Mono';
+  src: url('https://cdn.jsdelivr.net/npm/geist@1.2.0/dist/fonts/geist-mono/GeistMono-SemiBold.woff2')
+    format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -46,7 +46,9 @@
   --color-background: var(--color-void);
 
   /* Typography */
-  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-mono:
+    'Geist Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono',
+    monospace;
 
   /* Custom animations */
   --animate-fade-in-up: fade-in-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -166,4 +168,60 @@ button:focus-visible {
 ::selection {
   background-color: rgba(34, 211, 238, 0.2);
   color: var(--color-text);
+}
+
+/* Avatar Animation */
+.animate-scaleIn {
+  animation: scaleIn 0.25s ease-out;
+}
+
+/* Tooltip styling moved from Avatar component */
+
+[ava-tooltip] {
+  position: relative;
+  cursor: pointer;
+}
+
+[ava-tooltip]::after {
+  font-size: 9px;
+  content: attr(ava-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: -20%;
+  transform: translateX(-50%);
+  padding: 2px;
+  background-color: #000;
+  color: lime;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+[ava-tooltip]:hover::after {
+  opacity: 1;
+}
+
+[icon-tooltip] {
+  position: relative;
+  cursor: pointer;
+}
+
+[icon-tooltip]::after {
+  font-size: 9px;
+  content: attr(icon-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 350%;
+  transform: translateX(-50%);
+  padding: 2px;
+  background-color: #000;
+  color: lime;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+[icon-tooltip]:hover::after {
+  opacity: 1;
 }

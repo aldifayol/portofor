@@ -1,0 +1,77 @@
+---
+const defaultImage = "/favicon.svg";
+const hoverImage = "/coding.gif";
+const clickedImage = "/favicon.svg"
+---
+
+<!-- Hover Image -->
+<div id="avatar" class="relative group mx-auto mb-3 flex h-18 w-18 items-center justify-center rounded-full ring-2 ring-white/10" ava-tooltip="click to see a handsome [guy/girl?]">
+          
+  <img
+    src={defaultImage}
+    alt="avatar default"
+    class="absolute h-16 w-16 rounded-full object-cover transition-opacity duration-300 group-hover:opacity-0"
+  />
+  <img
+    src={hoverImage}
+    alt="avatar hover"
+    class="absolute h-16 w-16 rounded-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+  />
+
+  
+
+</div>
+
+<!-- Modal -->
+<div
+  id="image-modal"
+  class="fixed top-30 inset-0 z-50 hidden items-center justify-center bg-black/70"
+>
+  <div class="relative">
+    <!-- Close Button -->
+    <button
+      id="close-modal"
+      class="absolute -top-3 -right-3 bg-white text-black
+            rounded-full w-8 h-8 flex items-center justify-center
+            hover:scale-110 transition"
+    >
+      ✕
+    </button>
+
+    <!-- Large Image -->
+    <img
+      src={clickedImage}
+      alt="Profile large"
+      class="max-w-[90vw] max-h-[50vh] rounded-lg shadow-xl animate-scaleIn"
+    />
+  </div>
+</div>
+
+
+
+<script>
+  const avatar = document.getElementById("avatar");
+  const modal = document.getElementById("image-modal");
+  const closeBtn = document.getElementById("close-modal");
+  const nav = document.getElementById("main-nav");
+
+  avatar?.addEventListener("click", () => {
+    modal?.classList.remove("hidden");
+    modal?.classList.add("flex");
+    nav?.classList.add("hidden");
+  });
+
+  closeBtn?.addEventListener("click", () => {
+    modal?.classList.add("hidden");
+    modal?.classList.remove("flex");
+    nav?.classList.remove("hidden");
+  });
+
+  modal?.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      nav?.classList.remove("hidden");
+    }
+  });
+</script>
