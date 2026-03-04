@@ -1,5 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Avatar from "../components/Avatar.astro";
+import { BadgeCheck } from "@lucide/astro";
 
 const siteTitle = "Your Site";
 const description = "Developer, designer, and maker of things on the internet.";
@@ -38,10 +40,13 @@ const links = [
         class="mb-16 opacity-0 animate-fade-in-up"
         style="animation-delay: 0s;"
       >
-        <div class="mx-auto mb-3 flex h-18 w-18 items-center justify-center rounded-full ring-2 ring-white/10">
-          <img src="/favicon.svg" alt="your name" class="h-16 w-16 rounded-full object-cover" />
-        </div>
-        <h1 class="text-xl tracking-tight text-text text-center">your name</h1>
+        <Avatar />
+        <h1 class="flex items-center justify-center gap-2 text-xl tracking-tight text-text text-center">
+          your name
+          <span icon-tooltip="<yours>:verified">
+            <BadgeCheck class="w-4 h-4"/>
+          </span>
+        </h1>
         <p class="mt-1 text-sm text-muted text-center">your description</p>
       </header>
 
