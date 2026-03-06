@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Avatar from "../components/Avatar.astro";
 import { BadgeCheck } from "@lucide/astro";
+import Typewriter from "astro-typewriter"
 
 const siteTitle = "Your Site";
 const description = "Developer, designer, and maker of things on the internet.";
@@ -42,12 +43,22 @@ const links = [
       >
         <Avatar />
         <h1 class="flex items-center justify-center gap-2 text-xl tracking-tight text-text text-center">
+          <!-- 
+              edit this
+              to your need 
+          -->
           your name
           <span icon-tooltip="<yours>:verified">
             <BadgeCheck class="w-4 h-4"/>
           </span>
         </h1>
-        <p class="mt-1 text-sm text-muted text-center">your description</p>
+        <div class="text-center">
+          <!-- 
+              edit this
+              to your need 
+          -->
+          <Typewriter class="mt-1 text-sm text-muted big" messages={["your description 1...", "your description 2..."]} />
+         </div>
       </header>
 
       <!-- Links -->
