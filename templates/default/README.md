@@ -8,13 +8,6 @@ npm create portofor@latest -- --template default
 
 > 🧑‍🚀 **Seasoned developer?** Delete this file. Have fun!
 
-## This repository
-
-This `templates/default` folder is part of the `create-portofor` generator repository. The generator repository itself contains tooling and additional templates used to scaffold projects from this starter.
-
-- **Generator repo root (example)**: LICENSE, NOTES.md, package.json, torun.js, bin/, templates/
-- **This template location**: `templates/default`
-
 ## 🚀 Project Structure (what you get)
 
 When a user creates a project from this template, the generated project will include the following files and folders:
@@ -48,16 +41,6 @@ When a user creates a project from this template, the generated project will inc
 │       └── cn.ts
 └── package.json
 ```
-
-## Repository layout (for maintainers)
-
-If you're editing the generator (this repo), you'll find extra files at the repository root that don't belong in generated projects. Typical items here include:
-
-- `bin/` — CLI entrypoints used by the generator
-- `torun.js` — helper script used during development
-- `templates/` — all starter templates (including `default`)
-- `package.json` — dependencies and scripts for the generator
-- `README.md`, `LICENSE`, `NOTES.md` — repo docs and notes
 
 ## 🧞 Commands (for generated projects)
 
