@@ -1,0 +1,17 @@
+# Ignore the nested node_modules
+templates/default/node_modules/
+
+# Ignore build artifacts and cache
+templates/default/.astro/
+templates/default/.vscode/
+templates/default/dist/
+
+# Ignore lock files inside templates
+templates/default/package-lock.json
+templates/default/pnpm-lock.yaml
+templates/default/yarn.lock
+
+# Optional: Ignore local environment files
+.env
+.DS_Store
+example.*
