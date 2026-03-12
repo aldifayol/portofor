@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const siteTitle = "404 - Page Not Found";
+const description = "The page you're looking for doesn't exist.";
+---
+
+<Layout title={siteTitle} description={description} backToLink={false}>
+  <div class="relative flex min-h-screen flex-col items-center justify-center px-6">
+    <!-- Subtle ambient glow -->
+    <div
+      class="pointer-events-none absolute top-1/2 left-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full opacity-[0.02]"
+      style="background: radial-gradient(circle, #22d3ee 0%, transparent 70%);"
+    >
+    </div>
+
+    <div class="relative z-10 text-center">
+      <h1
+        class="mb-4 text-6xl font-medium text-text opacity-0 animate-fade-in-up"
+        style="animation-delay: 0s;"
+      >
+        404
+      </h1>
+      <p
+        class="mb-8 text-muted opacity-0 animate-fade-in-up"
+        style="animation-delay: 0.05s;"
+      >
+        page not found
+      </p>
+      <a
+        href="/"
+        class="group inline-flex items-center gap-2 text-subtle opacity-0 transition-colors duration-200 animate-fade-in-up hover:text-text"
+        style="animation-delay: 0.1s;"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-4 w-4 transition-transform duration-200 group-hover:-translate-x-0.5"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <span>back home</span>
+      </a>
+    </div>
+  </div>
+</Layout>
