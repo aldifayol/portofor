@@ -16,7 +16,6 @@ interface Props {
     html?: string;
     body?: string;
     main?: string;
-    footer?: string;
   };
   backToLink?:
     | false
@@ -115,31 +114,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           </aside>
         )
       }
-      <footer
-        class={cn(
-          "mt-auto border-t border-white/5 py-6 sm:py-10",
-          classNames?.footer
-        )}
-      >
-        <div class="container mx-auto px-4">
-          <div
-            class="flex w-full items-center justify-center gap-x-6 text-sm tracking-wider"
-          >
-            {
-              socialLinks.map((link) => (
-                <a
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-muted transition-colors duration-200 hover:text-text"
-                >
-                  {link.label}
-                </a>
-              ))
-            }
-          </div>
-        </div>
-      </footer>
+      
     </main>
   </body>
 </html>

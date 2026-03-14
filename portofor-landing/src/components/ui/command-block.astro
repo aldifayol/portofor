@@ -1,0 +1,52 @@
+---
+import {Copy, Check} from '@lucide/astro'
+
+let copied: boolean = false;
+---
+<div class="flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-4 py-4 sm:py-6 mb-3 sm:mb-4">
+  <div class="w-full max-w-lg sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-xl">
+    {/* Command Block */}
+    <div
+      class="group relative cursor-pointer transform transition-all duration-300"
+    >
+      {/* Glow effect */}
+      <div class="absolute -inset-1 bg-linear-to-r from-gray-600 via-gray-500 to-gray-700 rounded-xl sm:rounded-2xl blur opacity-2 group-hover:opacity-10 transition-opacity duration-300"></div>
+
+      {/* Main container */}
+      <div class="relative bg-black/90 backdrop-blur-xl border border-white/10 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 shadow-2xl group-hover:border-white/20 transition-all duration-300">
+        {/* Terminal header */}
+        <div class="flex items-center justify-between mb-2 sm:mb-3 md:mb-4">
+          <div class="flex items-center space-x-1.5 sm:space-x-2">
+            <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-red-500 rounded-full"></div>
+            <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-yellow-500 rounded-full"></div>
+            <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 bg-green-500 rounded-full"></div>
+          </div>
+        </div>
+
+        {/* Command line */}
+        <div class="flex items-center justify-between overflow-x-auto">
+          <div class="flex items-center space-x-2 sm:space-x-3 flex-1 min-w-0">
+            <span class="text-gray-500 font-mono text-sm sm:text-base md:text-lg select-none shrink-0">
+              $
+            </span>
+            <span class="text-green-400 font-mono text-sm sm:text-base md:text-lg font-medium tracking-wide truncate sm:break-all">
+              npx create-portofor
+            </span>
+          </div>
+
+          {/* Copy button */}
+          <button
+            type="button"
+            
+            class="ml-2 sm:ml-3 md:ml-4 p-1.5 sm:p-2 md:p-3 rounded-lg sm:rounded-xl text-gray-400 hover:text-white transition-all duration-200 focus:outline-none active:scale-95 group shrink-0"  
+          >
+            {copied ? <Check class="w-4 h-4 sm:w-5 sm:h-5 text-green-400" /> : <Copy class="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-200" />}
+            
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
