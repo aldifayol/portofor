@@ -1,6 +1,65 @@
 ---
 import CommandBlock from "../ui/command-block.astro"
+import { ArrowUpRight, Code2, Package, Sparkles, Zap } from '@lucide/astro';
 ---
-<div class="flex m-auto min-h-screen text-lg items-center">
+
+
+<div class="mt-30 m-auto min-h-screen text-lg items-center">
+  <div class="mb-6 sm:mb-8 flex justify-center">
+    <div class="inline-flex items-center gap-2 py-2 px-3 sm:px-4 text-xs sm:text-sm rounded-full shadow-lg backdrop-blur-md transition-all duration-300 border bg-black/40 border-white/20 text-white hover:bg-black/50 font-semibold cursor-pointer">
+      <span class="font-medium">Launch in seconds</span>
+      <Zap class="h-3 w-3 sm:h-4 sm:w-4 text-yellow-500" />
+      <a
+        href="https://aldi.codes"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center xs:inline-flex hover:text-blue-300 transition-colors">
+        Check Live Demo
+        <ArrowUpRight class="w-4 h-4 ml-1" />
+      </a>
+    </div>
+  </div>
+  {/* Main Headline */}
+  <h1 class="mb-4 sm:mb-4 text-2xl xs:text-4xl sm:text-5xl md:text-4xl lg:text-5xl font-bold leading-tight sm:leading-snug text-center px-2">
+    <span class="block bg-linear-to-r from-neutral-50 via-gray-300 to-gray-400 bg-clip-text text-transparent transition-all duration-300">
+      <span class="text-red-400">npx</span> and that's it!
+    </span>
+    <span class="block bg-linear-to-r from-white via-slate-400 to-gray-400 bg-clip-text text-transparent transition-all duration-300">
+      your <span class="text-lime-200">dark-minimalistic portfolio</span>
+    </span>
+    <span class="bg-linear-to-r from-white via-slate-400 to-gray-400 bg-clip-text text-transparent transition-all duration-300">
+      is ready to cook.
+    </span>
+  </h1>
   <CommandBlock />
+  {/* Feature Highlights */}
+  <div class="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-12 sm:mb-16 p-2 max-w-5xl mx-auto">
+    {[
+      {
+        icon: <Zap class="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />,
+        label: 'Easy Customization',
+      },
+      {
+        icon: <Code2 class="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />,
+        label: 'TypeScript Ready',
+      },
+      {
+        icon: <Package class="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />,
+        label: 'One Command Setup',
+      },
+      {
+        icon: <Sparkles class="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />,
+        label: 'Zero config needed',
+      },
+    ].map(({ icon, label }) => (
+      <div
+        class="flex items-center justify-center space-x-2 bg-white/5 backdrop-blur-sm rounded-full px-4 sm:px-6 py-2.5 sm:py-3 border border-white/5 min-h-11 sm:min-h-12">
+        {icon}
+        <span class="font-medium text-gray-300 text-xs sm:text-sm lg:text-base whitespace-nowrap">
+          {label}
+        </span>
+      </div>
+    ))}
+  </div>
 </div>
+
