@@ -1,8 +1,8 @@
 /* source("..") sets base path, so Tailwind CSS scans from `src` instead of `src/styles` */
 @import 'tailwindcss' source('..');
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@import "@fontsource-variable/jetbrains-mono";
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import '@fontsource-variable/jetbrains-mono';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -173,6 +173,16 @@ button:focus-visible {
 ::selection {
   background-color: rgba(34, 211, 238, 0.2);
   color: var(--color-text);
+}
+
+/* Snap Section */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+.snap-section {
+  scroll-snap-align: start;
 }
 
 /* Avatar Animation */
