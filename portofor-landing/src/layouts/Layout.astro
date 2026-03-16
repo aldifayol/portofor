@@ -87,7 +87,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     )}
   >
     <main
-      class={cn("flex min-h-screen flex-col text-text", classNames?.main)}
+      class={cn("flex min-h-screen flex-col text-text snap-container", classNames?.main)}
     >
       <slot />
       {
