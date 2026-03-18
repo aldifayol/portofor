@@ -1,7 +1,7 @@
 ---
 import {Copy, Check} from '@lucide/astro'
 
-let copied: boolean = false;
+const { textToCopy = "npx create portofor@latest" } = Astro.props;
 ---
 <div class="flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-4 py-4 sm:py-6 mb-3 sm:mb-4">
   <div class="w-full max-w-lg sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-xl">
@@ -37,16 +37,55 @@ let copied: boolean = false;
           {/* Copy button */}
           <button
             type="button"
-            
-            class="ml-2 sm:ml-3 md:ml-4 p-1.5 sm:p-2 md:p-3 rounded-lg sm:rounded-xl text-gray-400 hover:text-white transition-all duration-200 focus:outline-none active:scale-95 group shrink-0"  
+            text-to-copy={textToCopy}
+            class="copy-btn flex ml-2 sm:ml-3 md:ml-4 p-1.5 sm:p-2 md:p-3 rounded-lg sm:rounded-xl text-gray-400 hover:text-white transition-all duration-200 focus:outline-none active:scale-95 group shrink-0"  
           >
-            {copied ? <Check class="w-4 h-4 sm:w-5 sm:h-5 text-green-400" /> : <Copy class="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-200" />}
+            <!-- Default Icon  -->
+            <Copy class="default-state w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform duration-200" />
             
+            <!-- "Copied" State Icon (initially hidden)-->
+            <div class="copied-state hidden text-green-400 gap-2">
+              <span class="text-sm">Copied </span> 
+              <Check class="w-4 h-4 sm:w-5 sm:h-5" />
+            </div> 
           </button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<script>
+  // Find all buttons with the class 'copy-btn'
+  const buttons = document.querySelectorAll('button.copy-btn');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const text = btn.getAttribute('text-to-copy') ?? "";
+      const defaultState = btn.querySelector('.default-state') as HTMLElement;
+      const copiedState = btn.querySelector('.copied-state') as HTMLElement;
+
+      try {
+        // 1. Write to clipboard
+        await navigator.clipboard.writeText(text);
+        // 2. Toggle visibility classes
+        defaultState.classList.add('hidden');
+        copiedState.classList.remove('hidden');
+        copiedState.classList.add('flex'); // Ensure flex layout activates
+
+        // 4. Reset after 2 seconds
+        setTimeout(() => {
+          defaultState.classList.remove('hidden');
+          copiedState.classList.add('hidden');
+          // copiedState.classList.remove('flex');
+          
+        }, 5000);
+
+      } catch (err) {
+        console.error('Failed to copy!', err);
+      }
+    });
+  });
+</script>
 
 

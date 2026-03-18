@@ -12,11 +12,13 @@ const textColorMap: Record<string, string> = {
   blue: "text-blue-400",
   purple: "text-purple-400",
   green: "text-green-400",
+  yellow: "text-yellow-400"
 };
 
 const bgColorMap: Record<string, string> = {
   blue: "bg-blue-500/20",
   purple: "bg-purple-500/20",
+  yellow: "bg-yellow-500/20",
   green: "bg-green-500/20",
 };
 
@@ -27,19 +29,46 @@ const workflowData = [
     title: "1. Create Portfolio",
     icon: "Code",
     theme: "blue",
-    desc: ["Run npx create-neo-portfolio", "Interactive mode or provide project name", "Scaffolds portfolio automatically", "Installs dependencies and starts dev server"]
+    desc: ["Run `npx create-portofor`", "Interactive mode or provide project name", "Scaffolds portfolio automatically", "Installs dependencies and starts dev server"]
   },
   {
     title: "2. Edit Content",
     icon: "Cog",
-    theme: "green",
-    desc: ["Open src/components/constants/data.ts", "Fill in your details (name, links, projects)", "Update contact form endpoint", "Customize sections as needed"]
+    theme: "purple",
+    desc: ["Start from src/pages/about.astro", "Edit your personal info", "Explore through /pages and /data", "Update project and blog data, images"]
   },
   {
     title: "3. Deploy",
     icon: "FileText",
-    theme: "purple",
-    desc: ["Deploy to your favorite PaaS", "Portfolio ready in minutes", "Clean up unused sections"]
+    theme: "yellow",
+    desc: ["Deploy to your favorite PaaS", "Portfolio ready in minutes"]
+  }
+]
+
+const flowData = [
+  {
+    stepNum: 1,
+    title: "Create",
+    subtitle: "Run the CLI",
+    theme: "blue"
+  },
+  {
+    stepNum: 2,
+    title: "Edit",
+    subtitle: "Customize your data",
+    theme: "purple"
+  },
+  {
+    stepNum: 3,
+    title: "Deploy",
+    subtitle: "Launch your portfolio",
+    theme: "yellow"
+  },
+  {
+    stepNum: "✓",
+    title: "Ready!",
+    subtitle: "Portfolio is live",
+    theme: "green"
   }
 ]
 
@@ -71,7 +100,7 @@ const workflowData = [
               <CardContent className="p-6 lg:p-6">
                 <div class="flex items-center mb-4 lg:mb-6">
                   <div class={`w-8 h-8 sm:w-9 sm:h-9 ${bgColorMap[theme]} rounded-full flex items-center justify-center mr-3 lg:mr-4`}>
-                  <Icon class={`w-3 h-3 sm:w-3 sm:h-3 ${textColorMap[theme]}`} />
+                  <Icon class={`w-4 h-4 sm:w-5 sm:h-5 ${textColorMap[theme]}`} />
                   </div>
                   <h3 class="text-xl sm:text-lg font-bold text-white">
                     {title}
@@ -96,64 +125,24 @@ const workflowData = [
         <Card className="bg-white/5 backdrop-blur-xl border-white/5 shadow-xl">
           <CardContent className="p-6 lg:p-8">
             <h3 class="text-xl sm:text-2xl font-bold mb-6 lg:mb-8 text-center text-white">
-              Installation Flow
+              Installation Worklow
             </h3>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
-              <div class="flex flex-col items-center text-center">
-                <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-blue-500/20 rounded-full flex items-center justify-center mb-3">
-                  <span class="text-blue-400 font-bold text-lg sm:text-xl">
-                    1
-                  </span>
+              {flowData.map((data) => (
+                <div class="flex flex-col items-center text-center">
+                  <div class={`w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 ${bgColorMap[data.theme]} rounded-full flex items-center justify-center mb-3`}>
+                    <span class={`${textColorMap[data.theme]} font-bold text-lg sm:text-xl`}>
+                      {data.stepNum}
+                    </span>
+                  </div>
+                  <h4 class="font-semibold text-white mb-2 text-sm sm:text-base">
+                    {data.title}
+                  </h4>
+                  <p class="text-gray-400 text-xs sm:text-sm">
+                    {data.subtitle}
+                  </p>
                 </div>
-                <h4 class="font-semibold text-white mb-2 text-sm sm:text-base">
-                  Create
-                </h4>
-                <p class="text-gray-400 text-xs sm:text-sm">
-                  Run CLI command
-                </p>
-              </div>
-
-              <div class="flex flex-col items-center text-center">
-                <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-3">
-                  <span class="text-green-400 font-bold text-lg sm:text-xl">
-                    2
-                  </span>
-                </div>
-                <h4 class="font-semibold text-white mb-2 text-sm sm:text-base">
-                  Edit
-                </h4>
-                <p class="text-gray-400 text-xs sm:text-sm">
-                  Customize your data
-                </p>
-              </div>
-
-              <div class="flex flex-col items-center text-center">
-                <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-purple-500/20 rounded-full flex items-center justify-center mb-3">
-                  <span class="text-purple-400 font-bold text-lg sm:text-xl">
-                    3
-                  </span>
-                </div>
-                <h4 class="font-semibold text-white mb-2 text-sm sm:text-base">
-                  Deploy
-                </h4>
-                <p class="text-gray-400 text-xs sm:text-sm">
-                  Launch your portfolio
-                </p>
-              </div>
-
-              <div class="flex flex-col items-center text-center">
-                <div class="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-yellow-400/20 rounded-full flex items-center justify-center mb-3">
-                  <span class="text-yellow-400 font-bold text-lg sm:text-xl">
-                    ✓
-                  </span>
-                </div>
-                <h4 class="font-semibold text-white mb-2 text-sm sm:text-base">
-                  Ready!
-                </h4>
-                <p class="text-gray-400 text-xs sm:text-sm">
-                  Portfolio is live
-                </p>
-              </div>
+              ))}
             </div>
           </CardContent>
         </Card>
