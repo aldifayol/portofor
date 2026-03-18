@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { Content } from "../../data/docs/DOCS.md";
+
+const title = "Portofor Documentation";
+const description = "Learn how to use the Portofor CLI to create and customize your personal portfolio website.";
+---
+
+<Layout title={title} description={description} backToLink={false}>
+  <Header />
+  <main class="grow container mx-auto px-4 py-32 sm:py-48">
+    <article class="snap-section pt-30 prose prose-invert prose-neutral max-w-4xl mx-auto
+      prose-headings:font-bold prose-headings:text-white
+      prose-p:text-gray-300 prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+      prose-code:text-accent prose-pre:bg-surface/50 prose-pre:border prose-pre:border-white/10">
+      <Content />
+    </article>
+  </main>
+  <Footer />
+</Layout>
