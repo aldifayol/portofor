@@ -1,6 +1,6 @@
 # build output
 dist/
-docs/
+templates/default/docs/
 
 # generated types
 **.astro/
