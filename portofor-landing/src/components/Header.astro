@@ -3,30 +3,32 @@ import { Github, Package} from '@lucide/astro'
 import { Button } from "@/components/ui/button"
 
 const navItems = [
-    { id: 'features', label: 'Features' },
-    { id: 'installation', label: 'Installation' },
-    { id: 'how-it-works', label: 'How it Works' },
+    { id: 'features', label: 'Features', href: '/#hero-section' },
+    { id: 'how-it-works', label: 'How it Works', href: '/#how-it-works' },
+    { id: 'docs', label: 'Docs', href: '/docs' },
   ];
 
 ---
 <header class="sticky z-50 top-0 px-4 pt-5">
   <div class="z-50 w-full max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between backdrop-blur-xs bg-white/1 border border-white/10 shadow-xl">
     {/* Left */}
-    <div
+    <a
+      href="/"
       class="flex items-center space-x-1 z-10 cursor-pointer transition-all duration-200 hover:opacity-90"
       >
       <Package class="h-6 w-6 text-white -mt-0.5" />
       <span class="text-lg sm:text-xl ml-1 font-semibold text-white">Portofor</span>
-    </div>
+    </a>
 
     {/* Center */}
     <nav class="hidden lg:flex items-center space-x-8 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
       {navItems.map((item) => (
-        <button
+        <a
+          href={item.href}
           class="text-gray-300 hover:text-white transition-all duration-300 ease-out text-sm font-medium bg-transparent border-none cursor-pointer relative group">
           {item.label}
           <span class="absolute inset-x-0 -bottom-1 h-px bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out"></span>
-        </button>
+        </a>
       ))}
     </nav>
 
