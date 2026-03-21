@@ -20,7 +20,7 @@
 
 <p align="center">
   <br/>
-  <a href="https://portofor.my.id">Portofor</a> is a modern dark minimalist narcissistic portfolio website with blogging functionality built with Astro&mdash;
+  <a href="https://portofor.my.id">Portofor</a> is a modern dark minimalist narcissistic portfolio website with blogging functionality built with <strong>Astro</strong>;
   <br/>
   powerful developer experience meets lightweight output.
   <br/><br/>
@@ -40,11 +40,7 @@ Looking for quick examples? [Open a starter project](https://starter.portofor.my
 
 ## Reference & Inspiration
 
-**See what you can build [here](https://portofor.edgeone.dev)**
-
-<p align="center">
-  <img src=".github/assets/ref.webp" alt="Demo Screenshot" width="700" />
-</p>
+**See what you can build [here](https://portofor.vercel.app)**
 
 ## Documentation
 
