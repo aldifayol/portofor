@@ -40,7 +40,7 @@ Looking for quick examples? [Open a starter project](https://starter.portofor.my
 
 ## Reference & Inspiration
 
-**See what you can build [here](https://porto-blog-astro.edgeone.dev)**
+**See what you can build [here](https://portofor.edgeone.dev)**
 
 <p align="center">
   <img src=".github/assets/ref.webp" alt="Demo Screenshot" width="700" />
@@ -72,6 +72,5 @@ Astro is free, open source software made possible by these wonderful sponsors.
 
 <p align="left">
   <a target="_blank" href="https://opencollective.com/portofor">
-    <img src="https://portofor.my.id/sponsors.png" alt="Portofor Sponsors" />
   </a>
 </p>

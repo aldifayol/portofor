@@ -8,23 +8,29 @@ importers:
 
   .:
     dependencies:
+      '@lucide/astro':
+        specifier: ^0.577.0
+        version: 0.577.0(astro@5.18.0(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.59.0)(typescript@5.9.3))
       '@tailwindcss/typography':
         specifier: ^0.5.19
         version: 0.5.19(tailwindcss@4.2.1)
       '@tailwindcss/vite':
-        specifier: ^4.1.18
+        specifier: ^4.2.1
         version: 4.2.1(vite@6.4.1(jiti@2.6.1)(lightningcss@1.31.1))
       astro:
-        specifier: ^5.17.1
+        specifier: ^5.18.0
         version: 5.18.0(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.59.0)(typescript@5.9.3)
+      astro-typewriter:
+        specifier: ^1.1.0
+        version: 1.2.0(astro@5.18.0(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.59.0)(typescript@5.9.3))
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
       tailwind-merge:
-        specifier: ^3.4.0
+        specifier: ^3.5.0
         version: 3.5.0
       tailwindcss:
-        specifier: ^4.1.18
+        specifier: ^4.2.1
         version: 4.2.1
 
 packages:
@@ -551,6 +557,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
+  '@lucide/astro@0.577.0':
+    resolution: {integrity: sha512-xZcdx+MyYXY74cBzFxr9N49SlofbGjCVD9GxJZcJA40PJvJSLWSeJpD9bgKFcZfFxf1QXkEYaR6BnCS+0lek8Q==}
+    peerDependencies:
+      astro: ^4 || ^5
+
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
 
@@ -878,6 +889,11 @@ packages:
 
   array-iterate@2.0.1:
     resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
+
+  astro-typewriter@1.2.0:
+    resolution: {integrity: sha512-ihAzpgiW8BLX4uOlEr2BdXoys5nZHnnKYoDxANyKz8h6uC29sbCB6kF8hScFiG1h25a6274xqeQ0k/lql1d/2Q==}
+    peerDependencies:
+      astro: ^5.0.0 || ^6.0.0
 
   astro@5.18.0:
     resolution: {integrity: sha512-CHiohwJIS4L0G6/IzE1Fx3dgWqXBCXus/od0eGUfxrZJD2um2pE7ehclMmgL/fXqbU7NfE1Ze2pq34h2QaA6iQ==}
@@ -2246,6 +2262,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
+  '@lucide/astro@0.577.0(astro@5.18.0(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.59.0)(typescript@5.9.3))':
+    dependencies:
+      astro: 5.18.0(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.59.0)(typescript@5.9.3)
+
   '@oslojs/encoding@1.1.0': {}
 
   '@rollup/pluginutils@5.3.0(rollup@4.59.0)':
@@ -2483,6 +2503,10 @@ snapshots:
   aria-query@5.3.2: {}
 
   array-iterate@2.0.1: {}
+
+  astro-typewriter@1.2.0(astro@5.18.0(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.59.0)(typescript@5.9.3)):
+    dependencies:
+      astro: 5.18.0(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.59.0)(typescript@5.9.3)
 
   astro@5.18.0(jiti@2.6.1)(lightningcss@1.31.1)(rollup@4.59.0)(typescript@5.9.3):
     dependencies:
