@@ -16,7 +16,15 @@ To create a new portfolio project, run the following command in your terminal:
 npx create-portofor@latest
 ```
 
-You will be prompted to enter a name for your project. If you don't provide a name, a default name will be used. The CLI will then create a new directory with the project name, scaffold the portfolio, and install the necessary dependencies.
+You will be prompted to enter a name for your project. If you don't provide a name, a default name will be used. The CLI will then create a new directory with the project name and scaffold the portfolio.
+
+We leave the user to install dependencies to give them freedom to use their favorite package manager. I strongly recommend using pnpm:
+
+```
+pnpm install
+```
+
+And now your portfolio is ready to cook!
 
 ## Tech Stack
 
@@ -28,23 +36,28 @@ This project is built with the following technologies:
 - **shadcn/ui:** A collection of re-usable components.
 - **TypeScript:** For type safety.
 
-## Project Structure
+## Customizing Your Portfolio
 
-Inside of your Astro project, you'll see the following folders and files:
+### Project Structure
+
+Inside of your Astro project, you'll only need to worry about the following folders and files:
 
 ```text
 /
-├── public/
+├── public/     //  Avatar images, favicons, etc.
 │   └── favicon.svg
 ├── src
-│   ├── assets
 │   ├── components
-│   ├── layouts
+│   │   ├── Avatar.astro    // Customize your Avatar's url taken from public/ folder
+│   ├── data
+│   │   ├── blog      // Your blog post in a form of .md file
+│   │   ├── projects      // Your projects in .json format
 │   └── pages
-└── package.json
+│   │   ├── about.astro       // Profile information
+│   │   ├── index.astro       // Description in the <Typewriter /> message attribute.
 ```
 
-## Customizing Your Portfolio
+### More Deep-dive
 
 After the project is created, you can start customizing your portfolio.
 
@@ -104,6 +117,8 @@ publishDate: '2026-03-18'
 This is the content of my first blog post.
 ```
 
+Now, worry about nothing else.
+
 ## Available Commands
 
 | Command           | Action                                       |
@@ -131,3 +146,5 @@ npm run build
 ```
 
 The built files will be located in the `dist/` directory. You can then deploy these files to your preferred hosting provider.
+
+Feel free to DM me at [X]("https://x.com/ldifayol") if you have further questions.
