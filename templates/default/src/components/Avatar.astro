@@ -50,28 +50,32 @@ const clickedImage = "/favicon.svg"; //  REPLACE WITH SOME GIF OR IMAGE OF YOUR 
 
 
 <script>
-  const avatar = document.getElementById("avatar");
-  const modal = document.getElementById("image-modal");
-  const closeBtn = document.getElementById("close-modal");
-  const nav = document.getElementById("main-nav");
+  const setupAvatarModal = () => {
+    const avatar = document.getElementById("avatar");
+    const modal = document.getElementById("image-modal");
+    const closeBtn = document.getElementById("close-modal");
+    const nav = document.getElementById("main-nav");
 
-  avatar?.addEventListener("click", () => {
-    modal?.classList.remove("hidden");
-    modal?.classList.add("flex");
-    nav?.classList.add("hidden");
-  });
+    avatar?.addEventListener("click", () => {
+      modal?.classList.remove("hidden");
+      modal?.classList.add("flex");
+      nav?.classList.add("hidden");
+    });
 
-  closeBtn?.addEventListener("click", () => {
-    modal?.classList.add("hidden");
-    modal?.classList.remove("flex");
-    nav?.classList.remove("hidden");
-  });
-
-  modal?.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
-      modal.classList.remove("flex");
+    closeBtn?.addEventListener("click", () => {
+      modal?.classList.add("hidden");
+      modal?.classList.remove("flex");
       nav?.classList.remove("hidden");
-    }
-  });
+    });
+
+    modal?.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+        nav?.classList.remove("hidden");
+      }
+    });
+  };
+  
+  document.addEventListener("astro:page-load", setupAvatarModal);
 </script>
