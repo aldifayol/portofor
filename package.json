@@ -1,6 +1,17 @@
 {
   "name": "create-portofor",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldifayol/portofor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aldifayol/portofor/issues"
+  },
+  "homepage": "https://github.com/aldifayol/portofor#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "description": "Scaffold a Portofor project",
   "type": "module",
   "bin": {
@@ -17,6 +28,7 @@
   "files": [
     "dist/",
     "templates/default/",
+    ".github/assets/",
     "!templates/default/node_modules",
     "!templates/default/dist",
     "!templates/default/.astro",
