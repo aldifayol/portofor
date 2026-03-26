@@ -1,12 +1,14 @@
-#!/usr/bin/env node
-
 import fs from 'fs';
 import path from 'path';
 import process from 'process';
 import { cp, rename, readFile, writeFile } from 'fs/promises';
+import { fileURLToPath } from 'url';
 import prompts from 'prompts';
 
-async function createProject(name) {
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+async function createProject(name: string) {
   /**
    * Resolve target directory and ensure it doesn't exist
    */
@@ -23,7 +25,8 @@ async function createProject(name) {
    *  COPY TEMPLATE
    */
   try {
-    await cp(new URL('../templates/default', import.meta.url), targetDir, { recursive: true });
+    const templateDir = path.resolve(__dirname, '../templates/default');
+    await cp(templateDir, targetDir, { recursive: true });
 
     //  Safely handle the gitignore rename
     const templateGitignore = path.join(targetDir, 'gitignore.template');
@@ -37,15 +40,10 @@ async function createProject(name) {
     const pkgPath = path.join(targetDir, 'package.json');
     if (fs.existsSync(pkgPath)) {
       const pkgContent = await readFile(pkgPath, 'utf8');
-      const slugName = name
-        .toLowerCase()
-        .trim()
-        .replace(/\s+/g, '-')
-        .replace(/[^\w-]/g, '');
-      const updatedPkg = pkgContent.replace('__PROJECT_NAME__', name);
+      const updatedPkg = pkgContent.replace(/__PROJECT_NAME__/g, name);
       await writeFile(pkgPath, updatedPkg, 'utf8');
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('\n❌  Error setting up project:', error.message);
     process.exit(1);
   }
@@ -63,21 +61,28 @@ async function createProject(name) {
  *
  * */
 
-if (!process.argv[2]) {
-  const response = await prompts({
-    type: 'text',
-    name: 'name',
-    message: '🚀  Project name:',
-    initial: 'my-portofor',
-  });
+async function main() {
+  if (!process.argv[2]) {
+    const response = await prompts({
+      type: 'text',
+      name: 'name',
+      message: '🚀  Project name:',
+      initial: 'my-portofor',
+    });
 
-  // Guard against Ctrl+C / empty input
-  if (!response.name) {
-    console.log('\n❌  Operation cancelled.');
-    process.exit(0);
+    // Guard against Ctrl+C / empty input
+    if (!response.name) {
+      console.log('\n❌  Operation cancelled.');
+      process.exit(0);
+    }
+
+    await createProject(response.name);
+  } else {
+    await createProject(process.argv[2]);
   }
-
-  createProject(response.name);
-} else {
-  createProject(process.argv[2]);
 }
+
+main().catch((error) => {
+  console.error('Fatal error:', error);
+  process.exit(1);
+});
