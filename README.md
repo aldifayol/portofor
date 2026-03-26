@@ -1,7 +1,7 @@
 # Portofor 🚀 CLI
 
 <p align="left">
-  <a href="https://github.com/aldifayol/portfofor/stargazers" target="_blank">
+  <a href="https://github.com/aldifayol/portofor/stargazers" target="_blank">
     <img src="https://img.shields.io/github/stars/aldifayol/portofor?style=social" alt="GitHub stars" />
   </a>
   <a href="https://github.com/aldifayol/portofor" target="_blank">
