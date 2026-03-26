@@ -58,7 +58,7 @@ Having trouble? Get help in the official [Portofor Discord](https://discord.com/
 
 - [License (MIT)](LICENSE)
 - [Buy Me A Coffee](https://saweria.co/portofor)
-- [Website](https://portofor.my.id)
+- [Website](https://portofor-landing.vercel.app/)
 
 ## Sponsors
 
