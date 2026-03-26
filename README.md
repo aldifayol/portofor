@@ -7,16 +7,16 @@
   <a href="https://github.com/aldifayol/portofor" target="_blank">
     <img src="https://komarev.com/ghpvc/?username=aldifayol&label=Views&color=blue&style=flat" alt="Profile views" />
   </a>
-  <a href="https://www.npmjs.com/package/portofor" target="_blank">
-    <img src="https://img.shields.io/npm/v/portofor?color=cb3837&logo=npm" alt="NPM version" />
+  <a href="https://www.npmjs.com/package/create-portofor" target="_blank">
+    <img src="https://img.shields.io/npm/v/create-portofor?color=cb3837&logo=npm" alt="NPM version" />
   </a>
-  <a href="https://www.npmjs.com/package/portofor" target="_blank">
-    <img src="https://img.shields.io/npm/dt/portofor?color=cb3837&logo=npm" alt="NPM downloads" />
+  <a href="https://www.npmjs.com/package/create-portofor" target="_blank">
+    <img src="https://img.shields.io/npm/dt/create-portofor?color=cb3837&logo=npm" alt="NPM downloads" />
   </a>
 </p>
 <br/>
 
-![Build the web you want](.github/assets/banner.png 'Build the web you want')
+![Build the web you want](https://raw.githubusercontent.com/aldifayol/portofor/main/.github/assets/banner.png 'Build the web you want')
 
 <p align="center">
   <br/>
