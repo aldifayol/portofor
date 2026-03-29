@@ -27,7 +27,7 @@
 
 ## Installation
 
-The **recommended** way to install the latest version of Astro is by running the command below:
+The **recommended** way to install the latest version of Portofor is by running the command below:
 
 ```bash
 npm create portofor@latest
